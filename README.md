@@ -9,28 +9,28 @@ This repo is my personal journey of mastering essential LLMs models by: <br />
 
 ## 📚 Models Covered <br />
 Early / Deep NLP Research
-- Word2Vec
-- Seq2Seq
+- Word2Vec (TBD)
+- Seq2Seq (TBD)
 
 Transformer Architecture (Foundation)
-- Transformer
+- Transformer (TBD)
 
 Encoder-Only Models (Understanding / Pretraining)
-- BERT
-- T5
+- BERT (TBD)
+- T5 (TBD)
 
 Decoder-Only Models (Generation)
-- GPT
-- GPT-2
+- GPT (TBD)
+- GPT-2 (TBD)
 
 Scaling & Alignment / Instruction-Following
-- GPT-3
-- InstructGPT
-- GPT-4
+- GPT-3 (TBD)
+- InstructGPT (TBD)
+- GPT-4 (TBD)
 
 Democratized / Frontier Models
-- LLaMA
-- DeepSeek
+- LLaMA (TBD)
+- DeepSeek (TBD)
 
 <!--
 ## 📂 Repo Structure
