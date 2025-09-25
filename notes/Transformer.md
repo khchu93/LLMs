@@ -10,10 +10,12 @@ Therefore, the authors proposed a new architecture that dispenses with recurrenc
 <img src="https://github.com/khchu93/NoteImage/blob/main/Transformer.PNG" alt="transformer" width="600"/>
 
 The transformer can be divided into two modules: Encoder and Decoder. Both modules are composed of a stack of N = 6 identical layers. <br>
+
 **Encoder**: maps an input sequence of symbols to a continuous representation/vector space.
 - Each of the N encoder layers has two sub-layers:
 - 1. Multi-head self-attention mechanism
   2. Position-wise fully connected feed-forward network
+
 **Decoder**: uses the continuous representation to generate an output sequence one symbol at a time in an **auto-regressive**<sup>[1]</sup> manner.
 - Each of the N decoder layers has three sub-layers:
 - 1. Masked multi-head self-attention
@@ -21,7 +23,7 @@ The transformer can be divided into two modules: Encoder and Decoder. Both modul
   3. Position-wise fully connected feed-forward network
  
 Before the input is fed into the encoder, it has to go through three steps:
-1. **Tokenization**: convert raw text into smaller units, **tokens**, which the model can understand and manipulate. The 4 most common types of tokenization are:
+1. **Tokenization**: convert raw text into smaller units, **tokens**, which the model can understand and manipulate. The 3 most common types of tokenization are:
 - Word level (e.g., "cats") -> simple, but huge vocab size, can't handle new words, fails on unknown words
 - Character Level (e.g., "c", "a", "t", "s") -> small vocab, no unknown vocab, long sequences
 - Subword (e.g., "cat", "s") -> in between word and character tokenization, can handle unknown words by splitting into known subwords, two ways to do:
