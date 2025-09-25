@@ -9,6 +9,37 @@ Therefore, the authors proposed a new architecture that dispenses with recurrenc
 ## Architecture
 <img src="https://github.com/khchu93/NoteImage/blob/main/Transformer.PNG" alt="transformer" width="600"/>
 
+The transformer can be divided into two modules: Encoder and Decoder. Both modules are composed of a stack of N = 6 identical layers. <br>
+**Encoder**: maps an input sequence of symbols to a continuous representation/vector space.
+- Each of the N encoder layers has two sub-layers:
+- 1. Multi-head self-attention mechanism
+  2. Position-wise fully connected feed-forward network
+**Decoder**: uses the continuous representation to generate an output sequence one symbol at a time in an **auto-regressive**<sup>[1]</sup> manner.
+- Each of the N decoder layers has three sub-layers:
+- 1. Masked multi-head self-attention
+  2. Multi-head attention
+  3. Position-wise fully connected feed-forward network
+ 
+Before the input is fed into the encoder, it has to go through three steps:
+1. **Tokenization**: convert raw text into smaller units, **tokens**, which the model can understand and manipulate. The 4 most common types of tokenization are:
+- Word level (e.g., "cats") -> simple, but huge vocab size, can't handle new words, fails on unknown words
+- Character Level (e.g., "c", "a", "t", "s") -> small vocab, no unknown vocab, long sequences
+- Subword (e.g., "cat", "s") -> in between word and character tokenization, can handle unknown words by splitting into known subwords, two ways to do:
+- - BPE(Byte Pair Encoding), greedily matching the longest subwords (ensure minimal number of tokens)
+  - 1. Split a corpus of text into **characters** (e.g., "low" -> ["l","o","w"])
+    2. Count all **adjacent symbol pairs** in the corpus (e.g., ("l","o")=2, ("o","w")=2, ("w","e")=1)
+    3. Merge the **most frequent pair** into a new symbol (e.g., "l" + "o" → "lo", "o" + "w" → "ow")
+    4. Repeat the process until the desired size of vocabulary is reached, and the vocabulary is ready
+  - - When it encounters new words, it will pick the longest subword from the vocab and break it. Repeat until all are known.
+  - Unigram
+3. **Embedding**
+4. **Positional embedding**
+
+<sup>[1]</sup> **Autoregression**: a modeling approach that **predicts the next value in a sequence based on its previous values**. This can be expressed mathematically using the **chain rule**, where the probability of the whole sequence is the product of the probabilities of each token conditioned on all preceding tokens.:
+
+$$
+P(x_1, x_2, \dots, x_T) = \prod_{t=1}^{T} P(x_t \mid x_1, x_2, \dots, x_{t-1})
+$$
 
 ## Key Achievements
 - 
