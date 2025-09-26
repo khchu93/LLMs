@@ -34,14 +34,22 @@ Before the input is fed into the encoder, it has to go through three steps:
     4. Repeat the process until the desired size of vocabulary is reached, and the vocabulary is ready
   - - When it encounters new words, it will pick the longest subword from the vocab and break it. Repeat until all are known.
   - Unigram
-3. **Embedding**
-4. **Positional embedding**
+  - 1. Start with a large vocabulary of subwords
+    2. Assign a likelihood/probability to each token
+    3. Remove the tokens with the lowest likelihood until a desired size of vocabulary is reached
+  - - When it encounters new words, it tries different segmentations and chooses the sequence of subwords with the highest probability
+2. **Embedding**: convert **tokens** to a vector of numbers that capture the semantic meaning of the token
+3. **Positional embedding**: inject positional information into the embeddings of each vector
 
 <sup>[1]</sup> **Autoregression**: a modeling approach that **predicts the next value in a sequence based on its previous values**. This can be expressed mathematically using the **chain rule**, where the probability of the whole sequence is the product of the probabilities of each token conditioned on all preceding tokens.:
 
 $$
 P(x_1, x_2, \dots, x_T) = \prod_{t=1}^{T} P(x_t \mid x_1, x_2, \dots, x_{t-1})
 $$
+
+<sup>[2]</sup> **Corpus**: a large collection of **text** used for training or analysis<br>
+<sup>[3]</sup> **Vocabulary (Vocab)**: the set of unique **tokens** (words, subwords, or characters) that a model knows how to handle
+- Corpus -> Tokenization = Vocab, each vocab has a unique int **ID** and an **embedding vector**
 
 ## Key Achievements
 - 
