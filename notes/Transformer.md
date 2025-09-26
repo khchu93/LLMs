@@ -21,6 +21,9 @@ The transformer can be divided into two modules: Encoder and Decoder. Both modul
 - 1. Masked multi-head self-attention
   2. Multi-head attention
   3. Position-wise fully connected feed-forward network
+
+**Multi-head self-attention**
+**Self-Attention**
  
 Before the input is fed into the encoder, it has to go through three steps:
 1. **Tokenization**: convert raw text into smaller units, **tokens**, which the model can understand and manipulate. The 3 most common types of tokenization are:
