@@ -13,7 +13,7 @@ Early / Deep NLP Research
 - Seq2Seq (TBD)
 
 Transformer Architecture (Foundation)
-- Transformer (TBD)
+- [Transformer](https://github.com/khchu93/LLMs/blob/main/notes/Transformer.md)
 
 Encoder-Only Models (Understanding / Pretraining)
 - BERT (TBD)
