@@ -51,7 +51,7 @@ Before the input is fed into the encoder, it has to go through three steps:
 
 <sup>[1]</sup> **Multi-head self-attention**: run **self-attention**<sup>[2]</sup> multiple times in parallel, each with different learned Q/K/V projections to learn different types of relationships (e.g., grammar, semantic, positional, etc), all heads are concatenated and combined in the end into a final vector.
 
-<sup>[2]</sup> **Self-Attention**: a mechanism that allows each town in a sequence to determine its context-aware representation by weighting its relationships with other tokens
+<sup>[2]</sup> **Self-Attention**: a mechanism that allows each token in a sequence to determine its context-aware representation by weighting its relationships with other tokens
 
 <sup>[3]</sup> **Autoregression**: a modeling approach that **predicts the next value in a sequence based on its previous values**. This can be expressed mathematically using the **chain rule**, where the probability of the whole sequence is the product of the probabilities of each token conditioned on all preceding tokens.:
 
