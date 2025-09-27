@@ -10,20 +10,6 @@ Therefore, the authors proposed a new architecture that dispenses with recurrenc
 <img src="https://github.com/khchu93/NoteImage/blob/main/Transformer.PNG" alt="transformer" width="600"/>
 
 The transformer can be divided into two modules: Encoder and Decoder. Both modules are composed of a stack of N = 6 identical layers. <br>
-
-**Encoder**: maps an input sequence of symbols to a continuous representation/vector space.
-- Each of the N encoder layers has two sub-layers:
-- 1. Multi-head self-attention mechanism
-  2. Position-wise fully connected feed-forward network
-
-**Decoder**: uses the continuous representation to generate an output sequence one symbol at a time in an **auto-regressive**<sup>[1]</sup> manner.
-- Each of the N decoder layers has three sub-layers:
-- 1. Masked multi-head self-attention
-  2. Multi-head attention
-  3. Position-wise fully connected feed-forward network
-
-**Multi-head self-attention**
-**Self-Attention**
  
 Before the input is fed into the encoder, it has to go through three steps:
 1. **Tokenization**: convert raw text into smaller units, **tokens**, which the model can understand and manipulate. The 3 most common types of tokenization are:
@@ -44,6 +30,29 @@ Before the input is fed into the encoder, it has to go through three steps:
 2. **Embedding**: convert **tokens** to a vector of numbers that capture the semantic meaning of the token
 3. **Positional embedding**: inject positional information into the embeddings of each vector
 
+**Encoder**: maps an input sequence of symbols to a continuous representation/vector space.
+- Each of the N encoder layers has two sub-layers:
+- 1. Multi-head self-attention mechanism<sup>[1]</sup>
+- - 1. dot product matrix multiplication (MatMul) between Query and Key = scores (degree of emphasis each word should place on other words)
+    2. reduce the magnitude of scores by the square root of the dimension of query and key vectors, to ensure stable gradients
+    3. apply softmax to adjust the score, to ensure all attention weights sum to 1, and highlight important tokens while suppressing irrelevant ones
+    4. multiply the softmax output by value, only tokens with a high value are preserved
+    - Q = what this token is looking for, K = what each token offers, V = actual information to retrieve if a token is relevant
+  2. Residual connection + layer normalization 
+  3. Feed-forward network (FC + ReLU + FC)
+  4. Residual connection + layer normalization
+
+**Decoder**: uses the continuous representation to generate an output sequence one symbol at a time in an **auto-regressive**<sup>[1]</sup> manner.
+- Each of the N decoder layers has three sub-layers:
+- 1. Masked multi-head self-attention: multi-head self-attention + look-ahead mask that masks the future tokens to -inf, ensures that the predictions for a particular position can only depend on known outputs at positions before it
+  2. Encoder-Decoder Multi-Head Attention or Cross Attention: apply self-attention with the encoder as Query and Key and the decoder as Value 
+  3. Feed-forward network (FC + ReLU + FC)
+  4. Residual connection + layer normalization
+
+<sup>[1]</sup> **Multi-head self-attention**: run **self-attention**<sup>[2]</sup> multiple times in parallel, each with different learned Q/K/V projections to learn different types of relationships (e.g., grammar, semantic, positional, etc), all heads are concatenated and combined in the end into a final vector.
+
+<sup>[2]</sup> **Self-Attention**: a mechanism that allows each town in a sequence to determine its context-aware representation by weighting its relationships with other tokens
+
 <sup>[1]</sup> **Autoregression**: a modeling approach that **predicts the next value in a sequence based on its previous values**. This can be expressed mathematically using the **chain rule**, where the probability of the whole sequence is the product of the probabilities of each token conditioned on all preceding tokens.:
 
 $$
@@ -55,15 +64,23 @@ $$
 - Corpus -> Tokenization = Vocab, each vocab has a unique int **ID** and an **embedding vector**
 
 ## Key Achievements
-- 
+- Introduce pure attention mechanisms and replace recurrence and convolution-based models by enabling parallel computation that dramatically speeds up training
+- Introduce self-attention and the multi-head attention mechanism
+- Introduce positional encoding for order awareness without recurrence
 
 ## Pros & Cons
 
 Pros
-- 
+- Parallel processing
+- Long-range dependencies
+- Flexible length of input/output
+- Rich contextual representations 
 
 Cons
-- 
+- Memory and computation usage depend on the length of inputs (self-attention = O(n<sup>2</sup>), n = sequence length)
+- Require massive datasets and GPU resources to reach SOTA accuracy
+- easy to overfit without enough data
+- Difficult to understand how exactly it works
 
 ## When to use
 
@@ -82,3 +99,4 @@ Examples:
 -->
 
 ## References
+[How Transformers Work: A Detailed Exploration of Transformer Architecture](https://www.datacamp.com/tutorial/how-transformers-work)
