@@ -42,7 +42,7 @@ Before the input is fed into the encoder, it has to go through three steps:
   3. Feed-forward network (FC + ReLU + FC)
   4. Residual connection + layer normalization
 
-**Decoder**: uses the continuous representation to generate an output sequence one symbol at a time in an **auto-regressive**<sup>[1]</sup> manner.
+**Decoder**: uses the continuous representation to generate an output sequence one symbol at a time in an **auto-regressive**<sup>[3]</sup> manner.
 - Each of the N decoder layers has three sub-layers:
 - 1. Masked multi-head self-attention: multi-head self-attention + look-ahead mask that masks the future tokens to -inf, ensures that the predictions for a particular position can only depend on known outputs at positions before it
   2. Encoder-Decoder Multi-Head Attention or Cross Attention: apply self-attention with the encoder as Query and Key and the decoder as Value 
@@ -53,14 +53,14 @@ Before the input is fed into the encoder, it has to go through three steps:
 
 <sup>[2]</sup> **Self-Attention**: a mechanism that allows each town in a sequence to determine its context-aware representation by weighting its relationships with other tokens
 
-<sup>[1]</sup> **Autoregression**: a modeling approach that **predicts the next value in a sequence based on its previous values**. This can be expressed mathematically using the **chain rule**, where the probability of the whole sequence is the product of the probabilities of each token conditioned on all preceding tokens.:
+<sup>[3]</sup> **Autoregression**: a modeling approach that **predicts the next value in a sequence based on its previous values**. This can be expressed mathematically using the **chain rule**, where the probability of the whole sequence is the product of the probabilities of each token conditioned on all preceding tokens.:
 
 $$
 P(x_1, x_2, \dots, x_T) = \prod_{t=1}^{T} P(x_t \mid x_1, x_2, \dots, x_{t-1})
 $$
 
-<sup>[2]</sup> **Corpus**: a large collection of **text** used for training or analysis<br>
-<sup>[3]</sup> **Vocabulary (Vocab)**: the set of unique **tokens** (words, subwords, or characters) that a model knows how to handle
+<sup>[4]</sup> **Corpus**: a large collection of **text** used for training or analysis<br>
+<sup>[5]</sup> **Vocabulary (Vocab)**: the set of unique **tokens** (words, subwords, or characters) that a model knows how to handle
 - Corpus -> Tokenization = Vocab, each vocab has a unique int **ID** and an **embedding vector**
 
 ## Key Achievements
