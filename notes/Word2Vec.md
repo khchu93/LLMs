@@ -37,11 +37,11 @@ The two proposed architectures are:
 ## Pros & Cons
 
 Pros
-- achieved high accuracy at a much lower computational cost by removing the expensive non-linear hidden layer that was the computational bottleneck in traditional Feedforward Neural Network Language Models (NNLM)
-- achieved comparable or better semantic accuracy while training over 100× faster, learning from 1.6 billion words in under a day compared to eight weeks for 230 million words with RNNLM.
+- Achieved high accuracy at a much lower computational cost by removing the expensive non-linear hidden layer that was the computational bottleneck in traditional Feedforward Neural Network Language Models (NNLM)
+- Achieved comparable or better semantic accuracy while training over 100× faster, learning from 1.6 billion words in under a day compared to eight weeks for 230 million words with RNNLM.
 
 Cons
-- removed the non-linear hidden layer, resulting in a simpler log-linear model that might not be able to represent the data as precisely as complex neural networks.
+- Removed the non-linear hidden layer, resulting in a simpler log-linear model that might not be able to represent the data as precisely as complex neural networks.
 - Performance of the Skip-gram model is exceptional on semantic tasks, but slightly worse on the syntactic task compared to the CBOW model.
 - Performance of the CBOW model is about the same as the NNLM on the semantic task, but is better on the syntactic tasks.
 
