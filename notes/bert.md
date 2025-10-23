@@ -50,8 +50,11 @@ The **deep bidirectional nature** of the `BERT` architecture is **enabled by two
 
 Pros
 - Better long-range dependency: Through self-attention, **every token can directly connect to every other token**, regardless of position. This eliminates the **vanishing gradient** issue common in `RNNs`/`LSTMs`.
-- Better representation learning: BERT’s **embeddings are contextualized** — the same word gets different vectors depending on its meaning in context, which leads to **stronger semantic representations**.
+- Better representation learning: BERT’s **embeddings are contextualized**<sup>[1]</sup> — the same word gets different vectors depending on its meaning in context, which leads to **stronger semantic representations**.
 - Full context understanding: Each token’s embedding is computed by **attending to both left and right context** simultaneously, which allows BERT to **fully understand meaning and relationships** between words in a sentence.
+
+   [1] Contextual embedding ≠ Input embedding<br>
+   The input embedding is the element-wise sum of the token, position, and segment embeddings. The contextual embedding, on the other hand, is the vector output of each token from the final hidden layer, capturing the meaning of the word in the context of the entire sentence.
 
 Cons
 - High computational cost: Bidirectional attention **doubles computation** compared to unidirectional models. Original BERT took days on 16 TPUs.
