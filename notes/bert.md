@@ -7,7 +7,8 @@ The motivation of the `BERT` paper stems from the **critical limitations** of ex
 To overcome the unidirectionality constraint and unlock the full power of pre-trained representations, the authors propose `BERT`: **Bidirectional Encoder Representations from Transformers**. `BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers`. This bidirectionality is achieved by introducing a new pre-training objective called the **`"masked language model" (MLM)`**, inspired by the `Cloze task`, which **randomly masks some input tokens and trains the model to predict the original words based on the surrounding context**. Additionally, `BERT` is jointly pre-trained on a **`"next sentence prediction" (NSP)`** task to explicitly **learn text-pair relationships**, which is crucial for downstream tasks like `Question Answering (QA)` and `Natural Language Inference (NLI)`. The combined approach enables the pre-trained BERT model to be fine-tuned with just one additional output layer to achieve state-of-the-art results on a wide range of tasks without substantial task-specific architecture modifications, demonstrating the importance of deep bidirectional pre-training.
 
 ## Architecture
-<img src="https://github.com/khchu93/NoteImage/blob/main/bert.png" alt="embedding" width="600"/>
+
+<img src="https://github.com/khchu93/NoteImage/blob/main/bert.png" alt="embedding" width="600"/><br>
 **Core Architectural Components**<br>
 The architecture of `BERT`, which stands for **Bidirectional Encoder Representations from Transformers**, is a **multi-layer bidirectional Transformer encoder**.
 
