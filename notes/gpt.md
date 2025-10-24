@@ -1,4 +1,4 @@
-# GPT
+# Generative Pre-Training (GPT)
 
 ## Motivation
 
@@ -16,17 +16,17 @@ To address the scarcity of labeled data and the uncertainties surrounding effect
 ## Architecture
 <img src="https://github.com/khchu93/NoteImage/blob/main/gpt.PNG" alt="embedding" width="600"/><br>
 
-The Generative Pre-Training (GPT) model architecture is based on a two-stage training procedure using a high-capacity Transformer decoder network. The architecture is designed to facilitate robust transfer performance across diverse tasks with minimal modification.
+The Generative Pre-Training (GPT) model architecture is based on a **two-stage training procedure** using a **high-capacity Transformer decoder network**. The architecture is designed to **facilitate robust transfer performance across diverse tasks with minimal modification**.
 
-1. Core Model Architecture (The Transformer Decoder)
+1. **Core Model Architecture** (The Transformer Decoder)
 
-The model utilizes a multi-layer Transformer decoder, which is a variant of the original Transformer model. The Transformer was chosen over alternatives like recurrent networks (e.g., LSTMs) because it provides a more structured memory, enabling the model to effectively handle long-term dependencies in text.
-The specific model architecture used in the experiments is a 12-layer decoder-only transformer. Key specifications include:
-- Self-Attention: The model uses masked self-attention heads. This operation is applied over the input context tokens to produce an output distribution over target tokens.
-- Dimensions: It uses 768 dimensional states and 12 attention heads.
-- Feed-forward Networks: The position-wise feed-forward networks use 3072 dimensional inner states.
-- Embeddings: The inputs are processed using a bytepair encoding (BPE) vocabulary with 40,000 merges. The model uses learned position embeddings instead of the sinusoidal version found in the original Transformer work.
-- Regularization and Activation: Dropout is applied for regularization, and the Gaussian Error Linear Unit (GELU) is used as the activation function.
+The model utilizes a **multi-layer Transformer decoder**, which is a variant of the original Transformer model. The Transformer was chosen over alternatives like recurrent networks (e.g., LSTMs) because it **provides a more structured memory** by allowing every position in the input sequence to attend to every other position in the sequence simultaneously, **enabling the model to effectively handle long-term dependencies in text**.
+The specific model architecture used in the experiments is a **12-layer decoder-only transformer**. Key specifications include:
+- **Masked Self-Attention**: The model uses **masked self-attention** heads to maximize the likelihood of predicting the current token ($u_i$) given only the previous k context tokens ($u_{i-k}, \ldots, u_{i-1}$). This operation is applied over the input context tokens to produce an output probability distribution over the vocabulary for each position.
+- **Dimensions**: It uses **768-dimensional states** and **12 attention heads**.
+- **Feed-forward Networks**: The position-wise feed-forward networks use **3072-dimensional inner states**.
+- **Embeddings**: The inputs are processed using a `bytepair encoding (BPE)` **vocabulary with 40,000 merges**. The model uses **learned position embeddings** instead of the sinusoidal version found in the original Transformer work.
+- **Regularization and Activation**: `Dropout` is applied for **regularization**, and the `Gaussian Error Linear Unit (GELU)` is used as the activation function.
 
 The model processes the input context vector of tokens ($U$) through n layers ($h_l$), where $h_0$ is the sum of the token embedding matrix ($W_e$​) and the position embedding matrix ($W_p$).<br>
 
