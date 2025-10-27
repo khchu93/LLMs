@@ -63,7 +63,7 @@ Cons
 - No bidirectional context as a **unidirectional** (left-to-right) model that could not use future tokens for context. It has a limited understanding in some tasks compared to BERT, which uses bidirectional attention.
 - Required **fine-tuning** for each new task.
 - Limited dataset, trained on BooksCorpus (≈7000 unpublished books), which was relatively small (~5GB of text) and not diverse enough for broad generalization.
-- 
+
 <!--
 ## Implementation
 - Framework: 
@@ -79,4 +79,5 @@ Examples:
 -->
 
 ## References
-
+[Improving Language Understanding
+by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
