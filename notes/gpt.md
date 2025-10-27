@@ -50,8 +50,8 @@ To apply the model to structured NLP tasks (like textual entailment or question 
     - **Question Answering**: The **document context** (z), **question** (q), and **each possible answer** { $a_k$ } are concatenated, separated by delimiters: [ $z$; $q$; $; $a_k$ ]. Each potential answer sequence is processed independently, and the outputs are **normalized** via a **softmax layer** to predict the correct answer.
 
 ## Key Achievements
-- Introduced a novel two-stage training procedure (Unsupervised Pre-training + Supervised Fine-tuning) to learn a universal representation that transfers effectively to diverse tasks.
-- Use of task-aware input transformations during fine-tuning that converts structured inputs into a single contiguous sequence of tokens that the pre-trained Transformer model can process. It avoids the need for extensive, task-specific changes to the model architecture that previous transfer learning techniques often required.
+- Introduced a novel **two-stage training procedure** (Unsupervised Pre-training + Supervised Fine-tuning) to learn a universal representation that transfers effectively to diverse tasks.
+- Use of **task-aware input transformations** during fine-tuning that converts structured inputs into a single contiguous sequence of tokens that the pre-trained Transformer model can process. It avoids the need for extensive, task-specific changes to the model architecture that previous transfer learning techniques often required.
 
 ## Pros & Cons
 
@@ -60,7 +60,7 @@ Pros
 - Demonstrated transfer learning in NLP
 
 Cons
-- No bidirectional context as a unidirectional (left-to-right) model that could not use future tokens for context. It has a limited understanding in some tasks compared to BERT, which uses bidirectional attention.
+- No bidirectional context as a **unidirectional** (left-to-right) model that could not use future tokens for context. It has a limited understanding in some tasks compared to BERT, which uses bidirectional attention.
 - Required fine-tuning for each new task.
 - Limited dataset, trained on BooksCorpus (≈7000 unpublished books), which was relatively small (~5GB of text) and not diverse enough for broad generalization.
 - 
