@@ -30,3 +30,10 @@ A personal exploration of foundational Large Language Models (LLMs).
 #### Human Alignment
 - GPT-4, 2023 (TBD)
 - InstructGPT, 2022 (TBD)
+
+#### State Space Models (SSM)
+- [Mamba](https://github.com/khchu93/ComputerVision/blob/main/notes/Mamba.md), 2023 (TBD)
+
+#### Open Ecosystem
+- [DeepSeek R1](https://github.com/khchu93/LLMs/blob/main/notes/deepseek.md), 2025 (keywords: Mixture-of-Experts (MoE), Cold-start initialization, Chain-of-thought (CoT) generation, Pure RL reasoning)
+- LLaMA, 2023 (TBD)
