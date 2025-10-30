@@ -7,7 +7,7 @@ A personal exploration of foundational Large Language Models (LLMs).
 - Rebuilt the models from scratch based on academic and open-source references.
 - Analyzed and compared results to deepen understanding and share practical insights.
 
-📘 Related project: [Computer Vision Models Journey](https://github.com/khchu93/ComputerVision/edit/main/README.md)
+📘 Related project: [Computer Vision Models Journey](https://github.com/khchu93/ComputerVision/blob/main/README.md)
 
 ### 📚 LLM Models<br />
 #### Representation / Embeddings
